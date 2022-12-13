@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const fetchComments = async (id) => {
@@ -17,6 +18,12 @@ async function Comments ({ params }) {
     <ul style={{ fontSize: 10, backgroundColor: '#666' }}>
       {comments.map((comment) => (
         <li key={comment.id}>
+          <Image
+            alt={comment.name}
+            width='50'
+            height='50'
+            src={`https://avatars.dicebear.com/api/pixel-art/${comment.email}.svg`}
+          />
           <h2>{comment.name}</h2>
           <p>{comment.body}</p>
         </li>
